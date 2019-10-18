@@ -124,9 +124,8 @@ extension URLQueryItemsEncoder {
         }
 
         private func push(_ value: Any) {
-            guard var array = storage.popContainer() as? [String] else { assertionFailure(); return }
-            array.append(String(describing: value))
-            storage.push(container: array)
+            storage.popContainer()
+            storage.push(container: value)
         }
 
         func encodeNil() throws {}
